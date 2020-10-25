@@ -1,25 +1,50 @@
 # kain
- Koa boilerplate with essentials
- 
- Middlewares, Routing and a health check api
 
-## contains
- * helmet - security headers
- * CORS
- * body parser
- * access logs
- * routing
- 
+Koa boilerplate with essentials for poc projects/hackathons
+
+## Middlewares
+
+- helmet - security headers
+- CORS
+- body parser
+- access logs
+- routing
+- knex - migrations and seeds, cursor on context, sqlite3 example
+
 ## setup
-  clone repo
-  
-  `yarn install`
-  
-  `yarn start`
-  
-   Runs with nodemon on dev
-   
+
+clone repo
+
+```js
+ yarn install
+
+ yarn start
+```
+
+Runs with nodemon on dev
+
+## knex snippets
+
+```js
+// migrations
+ yarn run knex migrate:make todos
+ yarn run knex migrate:latest
+
+// seeds
+ yarn run knex seed:make tasks
+ yarn run knex seed:run
+```
+
+## sample routes
+
+```js
+'/'- hello world
+'/health' - health check
+'/api/vi/todos' - list of todos
+'api/v1/todos/err' - throws and error
+```
+
 ## todo
-  * .env
-  * docker build with pm2
- 
+
+- .env
+- docker build with pm2
