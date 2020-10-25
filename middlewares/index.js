@@ -5,6 +5,7 @@ const logger = require("./logger");
 const router = require("./router");
 const database = require("./database");
 const errorHandler = require("./errorHandling");
+const graphQL = require("./graphql");
 
 function registerMiddlewares(app) {
   // CORS with defaults
@@ -21,6 +22,9 @@ function registerMiddlewares(app) {
 
   // adds database cursor to context
   database(app);
+
+  // add graphql
+  graphQL(app);
 
   // register routes
   router(app);
