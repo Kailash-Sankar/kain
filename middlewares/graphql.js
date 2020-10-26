@@ -1,18 +1,13 @@
 const { ApolloServer, gql } = require("apollo-server-koa");
 
-const typeDefs = gql`
-  type Query {
-    hello: String
-  }
-`;
+const typeDefs = require("../graphql/schema");
+const resolvers = require("../graphql/resolvers");
 
-const resolvers = {
-  Query: {
-    hello: () => "Hello World!",
-  },
-};
-
-const server = new ApolloServer({ typeDefs, resolvers });
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  context: ({ ctx }) => ctx,
+});
 
 function setupGraphQL(app) {
   server.applyMiddleware({ app });

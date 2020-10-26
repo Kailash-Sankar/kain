@@ -12,7 +12,7 @@ function registerMiddlewares(app) {
   app.use(cors());
 
   // security headers
-  app.use(helmet());
+  //app.use(helmet());
 
   // registers loggers
   logger(app);

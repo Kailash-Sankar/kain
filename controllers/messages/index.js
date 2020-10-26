@@ -1,9 +1,9 @@
 const initRouter = require("../../utils/initRouter");
-const router = initRouter("todos");
+const router = initRouter("messages");
 
 router.get("/", async (ctx) => {
   console.log("on route");
-  const todos = await ctx.db.select().table("todos");
+  const todos = await ctx.db.select().from("messages");
   ctx.body = todos;
 });
 
