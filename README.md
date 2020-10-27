@@ -40,8 +40,9 @@ Runs with nodemon on dev
 ```js
 '/'- hello world
 '/health' - health check
-'/api/vi/todos' - list of todos
-'api/v1/todos/err' - throws and error
+'/api/vi/messages' - list of todos
+'api/v1/messages/err' - throws and error
+`/graphql - graphql endpoint
 ```
 
 ## todo
