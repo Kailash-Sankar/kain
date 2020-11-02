@@ -10,6 +10,7 @@ Koa boilerplate with essentials for poc projects/hackathons
 - access logs
 - routing
 - knex - migrations and seeds, cursor on context, sqlite3 example
+- grahql - queries and mutations
 
 ## setup
 
@@ -37,11 +38,14 @@ Runs with nodemon on dev
 
 ## sample routes
 
-```js
-'/'- hello world
-'/health' - health check
-'/api/vi/todos' - list of todos
-'api/v1/todos/err' - throws and error
+```
+/ - hello world
+/health - health check
+
+/api/v1/messages - list of messages
+/api/v1/messages/err - throws an error
+
+/graphql - messages list, message by id and add message
 ```
 
 ## todo
