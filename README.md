@@ -41,15 +41,22 @@ Runs with nodemon on dev
 ```
 Import insomina/postman file api_samples for examples
 
-GET / - hello world
-GET /health - health check
+GET  / - hello world
+GET  /health - health check
+
+use prefix - 'api/v1' for all below API's
 
 # template apis
-GET /api/v1/broadcasts - list of messages
-GET /api/v1/broadcasts/err - throws an error
+GET  /broadcasts - list of messages
+GET  /broadcasts/err - throws an error
 
-GET /api/v1/user/:conversationId - returns matching user profile
-POST /api/v1/user/ - adds new user
+GET  /user/:conversationId - returns matching user profile
+POST /user - adds new user
+GET  /user/:conversationId/alerts - returns all alerts for the user
+
+GET  /alert/all - all alerts
+GET  /alert/:alertId - alert by id
+POST /alert -  adds a new alert
 
 /graphql - broadcasts list, broadcast by id and add broadcast
 
