@@ -1,3 +1,3 @@
-const messageSchema = require("../controllers/messages/schema");
+const broadcastSchema = require("../controllers/broadcasts/schema");
 
-module.exports = [messageSchema];
+module.exports = [broadcastSchema];

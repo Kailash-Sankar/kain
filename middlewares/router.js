@@ -1,9 +1,9 @@
 const baseRouter = require("../controllers/base");
-const messagesRouter = require("../controllers/messages");
+const broadcastsRouter = require("../controllers/broadcasts");
 
 function addRoutes(app) {
   app.use(baseRouter.middleware());
-  app.use(messagesRouter.middleware());
+  app.use(broadcastsRouter.middleware());
 }
 
 module.exports = addRoutes;

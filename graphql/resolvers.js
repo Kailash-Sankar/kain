@@ -1,3 +1,3 @@
-const messageResolver = require("../controllers/messages/resolvers");
+const broadcastResolver = require("../controllers/broadcasts/resolvers");
 
-module.exports = [messageResolver];
+module.exports = [broadcastResolver];
