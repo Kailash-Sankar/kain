@@ -63,3 +63,7 @@ typings/
 
 #vs code configurations
 .vscode/
+
+db
+
+public/images/screenshot/**
