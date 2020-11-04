@@ -4,9 +4,7 @@ const router = initRouter("user");
 // get a user by conversation_id
 router.get("/:conversationId", async (ctx) => {
   const conversationId = ctx.params.conversationId;
-  const userRow = await ctx
-    .db("users")
-    .where("conversation_id", conversationId);
+  const userRow = await ctx.db("users").where("id", conversationId);
 
   ctx.body = userRow.length
     ? {
@@ -21,12 +19,12 @@ router.get("/:conversationId", async (ctx) => {
 // add user
 router.post("/", async (ctx) => {
   const { name, email, conversation_id } = ctx.request.body;
-  const [id] = await ctx.db("users").insert({
+  await ctx.db("users").insert({
+    id: conversation_id,
     name,
     email,
-    conversation_id,
   });
-  const newUser = await ctx.db("users").where("id", id);
+  const newUser = await ctx.db("users").where("id", conversation_id);
   ctx.body = newUser[0];
 });
 

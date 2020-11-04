@@ -6,31 +6,27 @@ exports.seed = function (knex) {
       // Inserts seed entries
       return knex("users").insert([
         {
-          id: 1,
+          id: "a1b",
           name: "Bubbles",
           email: "bubbles@powerpuffgirls.com",
-          conversation_id: "a1b",
           active: true,
         },
         {
-          id: 2,
+          id: "a2b",
           name: "Buttercup",
           email: "buttercup@powerpuffgirls.com",
-          conversation_id: "a2b",
           active: true,
         },
         {
-          id: 3,
+          id: "a3b",
           name: "Blossoms",
           email: "blossoms@powerpuffgirls.com",
-          conversation_id: "a3b",
           active: true,
         },
         {
-          id: 4,
+          id: "x1y",
           name: "Mojo Jojo",
           email: "mojojojo@evilpowerpuffgirls.com",
-          conversation_id: "x1y",
           active: true,
         },
       ]);

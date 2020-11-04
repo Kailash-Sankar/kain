@@ -1,9 +1,9 @@
 exports.up = function (knex) {
   return knex.schema.createTable("users", function (table) {
-    table.increments(); // primary key, incrementing id
+    // conversation id
+    table.string("id").notNullable().unique();
     table.string("name").notNullable();
     table.string("email").notNullable();
-    table.string("conversation_id").notNullable();
     table.boolean("active").defaultTo(true);
     table.timestamps(false, true);
   });
