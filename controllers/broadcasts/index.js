@@ -2,9 +2,8 @@ const initRouter = require("../../utils/initRouter");
 const router = initRouter("broadcasts");
 
 router.get("/", async (ctx) => {
-  console.log("on route");
-  const todos = await ctx.db.select().from("broadcasts");
-  ctx.body = todos;
+  const broadcasts = await ctx.db.select().from("broadcasts");
+  ctx.body = broadcasts;
 });
 
 router.get("/err", (ctx) => {

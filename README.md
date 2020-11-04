@@ -39,14 +39,20 @@ Runs with nodemon on dev
 ## sample routes
 
 ```
-/ - hello world
-/health - health check
+Import insomina/postman file api_samples for examples
 
-/api/v1/broadcasts - list of messages
-/api/v1/broadcasts/err - throws an error
+GET / - hello world
+GET /health - health check
+
+# template apis
+GET /api/v1/broadcasts - list of messages
+GET /api/v1/broadcasts/err - throws an error
+
+GET /api/v1/user/:conversationId - returns matching user profile
+POST /api/v1/user/ - adds new user
 
 /graphql - broadcasts list, broadcast by id and add broadcast
-(Refer examples in api_samples)
+
 ```
 
 ## todo
