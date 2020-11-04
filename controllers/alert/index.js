@@ -31,6 +31,7 @@ router.post("/", async (ctx) => {
     name,
     metric,
     condition,
+    value,
     user_id,
   });
   const newAlert = await ctx.db("alerts").where("id", id);
