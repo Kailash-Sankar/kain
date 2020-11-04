@@ -28,4 +28,14 @@ router.post("/", async (ctx) => {
   ctx.body = newUser[0];
 });
 
+// alerts by user
+router.get("/:conversationId/alerts", async (ctx) => {
+  const conversationId = ctx.params.conversationId;
+  const alertsRow = await ctx
+    .db("alerts")
+    .where("user_id", conversationId)
+    .orderBy("updated_at", "desc");
+  ctx.body = { data: alertsRow };
+});
+
 module.exports = router;
