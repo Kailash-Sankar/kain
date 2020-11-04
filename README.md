@@ -28,11 +28,11 @@ Runs with nodemon on dev
 
 ```js
 // migrations
- yarn run knex migrate:make todos
+ yarn run knex migrate:make broadcasts
  yarn run knex migrate:latest
 
 // seeds
- yarn run knex seed:make tasks
+ yarn run knex seed:make broadcasts
  yarn run knex seed:run
 ```
 
@@ -42,10 +42,11 @@ Runs with nodemon on dev
 / - hello world
 /health - health check
 
-/api/v1/messages - list of messages
-/api/v1/messages/err - throws an error
+/api/v1/broadcasts - list of messages
+/api/v1/broadcasts/err - throws an error
 
-/graphql - messages list, message by id and add message
+/graphql - broadcasts list, broadcast by id and add broadcast
+(Refer examples in api_samples)
 ```
 
 ## todo
