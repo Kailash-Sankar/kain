@@ -63,3 +63,6 @@ typings/
 
 #vs code configurations
 .vscode/
+
+# ignore sqlite db
+*.sqlite3

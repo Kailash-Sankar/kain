@@ -4,16 +4,8 @@ const router = initRouter("user");
 // get a user by conversation_id
 router.get("/:conversationId", async (ctx) => {
   const conversationId = ctx.params.conversationId;
-  const userRow = await ctx.db("users").where("id", conversationId);
-
-  ctx.body = userRow.length
-    ? {
-        data: userRow[0],
-      }
-    : {
-        message: "User not found",
-        data: null,
-      };
+  const userRow = await ctx.db("users").where("id", conversationId).first();
+  ctx.body = { data: userRow || null };
 });
 
 // add user
@@ -24,8 +16,8 @@ router.post("/", async (ctx) => {
     name,
     email,
   });
-  const newUser = await ctx.db("users").where("id", conversation_id);
-  ctx.body = newUser[0];
+  const newUser = await ctx.db("users").where("id", conversation_id).first();
+  ctx.body = newUser;
 });
 
 // alerts by user

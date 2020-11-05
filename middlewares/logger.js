@@ -21,4 +21,12 @@ function logger(app) {
   app.use(calcResponseTime);
 }
 
+function generateLogger(config) {
+  if (config.debug) {
+    return console.log;
+  }
+  return () => null;
+}
+
 module.exports = logger;
+module.exports.generateLogger = generateLogger;
