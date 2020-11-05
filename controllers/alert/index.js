@@ -16,17 +16,17 @@ router.get("/:alertId", async (ctx) => {
   const alertRow = await ctx.db("alerts").where("id", alertId);
   ctx.body = alertRow.length
     ? {
-        data: alertRow[0],
-      }
+      data: alertRow[0],
+    }
     : {
-        message: "Alert not found",
-        data: null,
-      };
+      message: "Alert not found",
+      data: null,
+    };
 });
 
 // add alert
 router.post("/", async (ctx) => {
-  const { name, metric, condition, user_id } = ctx.request.body;
+  const { name, metric, condition, value, user_id } = ctx.request.body;
   const [id] = await ctx.db("alerts").insert({
     name,
     metric,
