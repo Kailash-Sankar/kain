@@ -4,6 +4,7 @@ exports.up = function (knex) {
     table.string("name").notNullable();
     table.string("metric").notNullable();
     table.string("condition").notNullable();
+    table.string("value").notNullable();
     table.boolean("active").defaultTo(true);
     table.string("user_id").notNullable();
     table.timestamps(false, true);

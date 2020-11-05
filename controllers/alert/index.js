@@ -19,11 +19,12 @@ router.get("/:alertId", async (ctx) => {
 
 // add alert
 router.post("/", async (ctx) => {
-  const { name, metric, condition, user_id } = ctx.request.body;
+  const { name, metric, condition, value, user_id } = ctx.request.body;
   const [id] = await ctx.db("alerts").insert({
     name,
     metric,
     condition,
+    value,
     user_id,
   });
   const newAlert = await ctx.db("alerts").where("id", id).first();

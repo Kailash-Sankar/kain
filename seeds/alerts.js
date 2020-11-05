@@ -8,25 +8,29 @@ exports.seed = function (knex) {
         {
           name: "VSF Alerts",
           metric: "VideoStartFailures",
-          condition: "> 2%",
+          condition: "greater",
+          value: "10",
           user_id: "a1b",
         },
         {
           name: "Alert xyz",
           metric: "VideoPlaybackFailures",
-          condition: "> 10%",
+          condition: "less",
+          value: "2.6",
           user_id: "a2b",
         },
         {
           name: "Buffering alert",
           metric: "RebufferingRatio",
-          condition: "> 3%",
+          condition: "equal",
+          value: "12345",
           user_id: "a3b",
         },
         {
           name: "Secondary VSF Alerts",
           metric: "VideoStartFailures",
-          condition: "> 4%",
+          condition: "greater",
+          value: "9843",
           user_id: "a1b",
         },
       ]);
