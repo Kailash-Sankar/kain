@@ -13,15 +13,8 @@ router.get("/all", async (ctx) => {
 // get an alert by id
 router.get("/:alertId", async (ctx) => {
   const alertId = ctx.params.alertId;
-  const alertRow = await ctx.db("alerts").where("id", alertId);
-  ctx.body = alertRow.length
-    ? {
-      data: alertRow[0],
-    }
-    : {
-      message: "Alert not found",
-      data: null,
-    };
+  const alertRow = await ctx.db("alerts").where("id", alertId).first();
+  ctx.body = { data: alertRow || null };
 });
 
 // add alert
@@ -34,8 +27,8 @@ router.post("/", async (ctx) => {
     value,
     user_id,
   });
-  const newAlert = await ctx.db("alerts").where("id", id);
-  ctx.body = newAlert[0];
+  const newAlert = await ctx.db("alerts").where("id", id).first();
+  ctx.body = newAlert;
 });
 
 module.exports = router;

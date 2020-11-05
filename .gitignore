@@ -64,6 +64,8 @@ typings/
 #vs code configurations
 .vscode/
 
-db
-
+# screenshots
 public/images/screenshot/**
+
+# ignore sqlite db
+*.sqlite3

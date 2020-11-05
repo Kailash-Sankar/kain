@@ -5,8 +5,8 @@ const resolvers = {
       return broadcasts;
     },
     async Broadcast(root, args, ctx) {
-      const broadcast = await ctx.db("broadcasts").where("id", args.id);
-      return broadcast[0];
+      const broadcast = await ctx.db("broadcasts").where("id", args.id).first();
+      return broadcast;
     },
   },
   Mutation: {
@@ -18,8 +18,8 @@ const resolvers = {
         type,
         date,
       });
-      const newBroadcast = await ctx.db("broadcasts").where("id", id);
-      return newBroadcast[0];
+      const newBroadcast = await ctx.db("broadcasts").where("id", id).first();
+      return newBroadcast;
     },
   },
 };

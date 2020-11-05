@@ -10,3 +10,5 @@ async function addCursor(ctx, next) {
 module.exports = (app) => {
   app.use(addCursor);
 };
+
+module.exports.getCursor = () => cursor;
