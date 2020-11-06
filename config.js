@@ -24,7 +24,7 @@ const mock = {
   alert: {
     enabled: true,
     frequency: 1000 * 60 * 5, // mock every 5 minutes
-    rate: { min: 0, max: 1 }, // how many events to mock, inclusive
+    rate: { min: 0, max: 2 }, // how many events to mock
   },
 };
 

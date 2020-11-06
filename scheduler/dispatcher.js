@@ -1,10 +1,11 @@
 const { AlertDispatcher } = require("./alert");
 const { BroadcastDispatcher } = require("./broadcast");
-const { bot } = require("../config");
-const { updateEvent } = require("./utils");
+const { bot: botConfig } = require("../config");
+const { updateEvent, getBotInterface } = require("./utils");
 
 // format and dispatch event to bot
 function Dispatcher({ db, log }) {
+  const bot = getBotInterface(botConfig);
   const handleAlert = AlertDispatcher({ db, log, bot });
   const handleBroadcast = BroadcastDispatcher({ db, log, bot });
 

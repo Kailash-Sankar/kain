@@ -1,12 +1,10 @@
-const { axiosBot } = require("./utils");
-
 // format and dispatch a broadcast event
 function BroadcastDispatcher({ bot, db, log }) {
   return (msg) => {
     log("dispatching boradcast event", msg);
     const { title, description, type } = msg;
-    const url = bot.broadcastEndpoint;
-    axiosBot.post(url, {
+    const url = bot.config.broadcastEndpoint;
+    bot.axios.post(url, {
       title,
       description,
       type,

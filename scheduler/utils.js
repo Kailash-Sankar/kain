@@ -1,10 +1,15 @@
 const axios = require("axios");
 const BATCH_SIZE = 25;
 
-const axiosBot = axios.create({
-  baseURL: process.env.BOT_URL,
-  timeout: 3000,
-});
+function getBotInterface(config) {
+  return {
+    axios: axios.create({
+      baseURL: process.env.BOT_URL,
+      timeout: 3000,
+    }),
+    config,
+  };
+}
 
 function getEvent(db, queue_id) {
   return db("scheduler_queue").where("id", queue_id).first();
@@ -27,5 +32,5 @@ module.exports = {
   getEvent,
   updateEvent,
   getNextBatch,
-  axiosBot,
+  getBotInterface,
 };
