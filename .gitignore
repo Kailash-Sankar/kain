@@ -68,4 +68,4 @@ typings/
 public/images/screenshot/**
 
 # ignore sqlite db
-*.sqlite3
+.data
