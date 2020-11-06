@@ -35,10 +35,10 @@ exports.seed = function (knex) {
         },
         {
           id: 5,
-          title: "New packages",
-          description: "plenty of cool stuff here",
-          type: "promotions",
-          date: "2020-10-26 12:17:36",
+          title: "New version",
+          description: "Updated kain instance was deployed",
+          type: "release",
+          date: "2020-11-10 12:17:36",
         },
       ]);
     });
