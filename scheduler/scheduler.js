@@ -2,6 +2,7 @@ const schedule = require("node-schedule");
 const { AlertScheduler } = require("./alert");
 const { BroadcastScheduler } = require("./broadcast");
 const Dispatcher = require("./dispatcher");
+const { updateEvent } = require("./utils");
 
 // format and dispatch event to bot
 function EventScheduler({ db, log }) {
@@ -34,6 +35,8 @@ function EventScheduler({ db, log }) {
           dispatcher(event, data);
         });
       }
+      // update item status in queue
+      await updateEvent(db, event.id, 1);
     }
   };
 }

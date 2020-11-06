@@ -1,23 +1,30 @@
 const { AlertDispatcher } = require("./alert");
 const { BroadcastDispatcher } = require("./broadcast");
+const { bot } = require("../config");
+const { updateEvent } = require("./utils");
 
 // format and dispatch event to bot
 function Dispatcher({ db, log }) {
-  const handleAlert = AlertDispatcher({ db, log });
-  const handleBroadcast = BroadcastDispatcher({ db, log });
+  const handleAlert = AlertDispatcher({ db, log, bot });
+  const handleBroadcast = BroadcastDispatcher({ db, log, bot });
 
   return async (event, data) => {
     log("dispatching event", event);
-
-    switch (event.type) {
-      case "alert":
-        handleAlert(data);
-        break;
-      case "broadcast":
-        handleBroadcast(data);
-        break;
-      default:
-        log("invalid type");
+    try {
+      switch (event.type) {
+        case "alert":
+          await handleAlert(data);
+          break;
+        case "broadcast":
+          await handleBroadcast(data);
+          break;
+        default:
+          log("invalid type");
+      }
+      await updateEvent(db, event.id, 2);
+    } catch (err) {
+      log(event.id, err);
+      await updateEvent(db, event.id, -1);
     }
   };
 }

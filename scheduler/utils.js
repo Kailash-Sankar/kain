@@ -1,7 +1,19 @@
+const axios = require("axios");
 const BATCH_SIZE = 25;
+
+const axiosBot = axios.create({
+  baseURL: process.env.BOT_URL,
+  timeout: 3000,
+});
 
 function getEvent(db, queue_id) {
   return db("scheduler_queue").where("id", queue_id).first();
+}
+
+function updateEvent(db, queue_id, status) {
+  return db("scheduler_queue").where("id", queue_id).update({
+    status,
+  });
 }
 
 function getNextBatch(db) {
@@ -13,5 +25,7 @@ function getNextBatch(db) {
 
 module.exports = {
   getEvent,
+  updateEvent,
   getNextBatch,
+  axiosBot,
 };

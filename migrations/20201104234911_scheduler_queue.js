@@ -7,7 +7,7 @@ exports.up = function (knex) {
     // action data identifier, like alert_id or broadcast_id
     table.string("type_id").notNullable();
     // queue status, 0: waiting,  1:queued, 2:completed, -1: failed
-    table.string("status").notNullable();
+    table.string("status").notNullable().defaultTo(0);
     table.timestamps(false, true);
   });
 };
