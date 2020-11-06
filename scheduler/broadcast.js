@@ -1,10 +1,10 @@
 // format and dispatch a broadcast event
 function BroadcastDispatcher({ bot, db, log }) {
-  return (msg) => {
+  return async (msg) => {
     log("dispatching boradcast event", msg);
     const { title, description, type } = msg;
     const url = bot.config.broadcastEndpoint;
-    bot.axios.post(url, {
+    await bot.axios.post(url, {
       title,
       description,
       type,
