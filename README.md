@@ -51,7 +51,9 @@ GET  /broadcasts - list of messages
 GET  /broadcasts/err - throws an error
 
 GET  /user/:conversationId - returns matching user profile
+GET  /user/all - all users
 POST /user - adds new user
+POST /user/:conversationId  - update user meta data
 GET  /user/:conversationId/alerts - returns all alerts for the user
 
 GET  /alert/all - all alerts
