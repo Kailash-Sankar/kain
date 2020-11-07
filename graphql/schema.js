@@ -4,10 +4,10 @@ const userSchema = require("../controllers/user/schema");
 
 const typeDefs = gql`
   type Query {
-    Broadcasts: [Broadcast]
-    Broadcast(id: ID): Broadcast
-    Users: [User]
-    User(id: ID): User
+    broadcasts: [Broadcast]
+    broadcast(id: ID): Broadcast
+    users: [User]
+    user(id: ID): User
   }
   type Mutation {
     addBroadcast(message: NewBroadcast!): Broadcast!
