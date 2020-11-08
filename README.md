@@ -1,6 +1,15 @@
 # kain
 
-Koa boilerplate with essentials for poc projects/hackathons
+** Conviva Hackathon 2020 **
+
+Backend API server for Eva (bot) and Web application (Pulse simulator and Admin dashboard).
+Stack:
+Koa + essental middlewares
+Apollo Graphql
+Sqlite3
+hosted on glitch: https://kain-server.glitch.me/
+
+Also serves as a barebone boilerplate for poc projects/hackathons.
 
 ## Middlewares
 
@@ -11,6 +20,8 @@ Koa boilerplate with essentials for poc projects/hackathons
 - routing
 - knex - migrations and seeds, cursor on context, sqlite3 example
 - grahql - queries and mutations
+- sqlite3 database
+- node-schedule for scheduling
 
 ## setup
 
@@ -19,10 +30,19 @@ clone repo
 ```js
  yarn install
 
+ // for development
+ yarn dev
+
+ // for production
  yarn start
 ```
 
 Runs with nodemon on dev
+
+## Database
+
+- create a folder .data in the root folder for sequelize to create db files
+- Use SQLite extension in vs code or DB Browser for sqlite to view the tables, fields and data.
 
 ## knex snippets
 
@@ -35,10 +55,6 @@ Runs with nodemon on dev
  yarn run knex seed:make broadcasts
  yarn run knex seed:run
 ```
-
-## Database
- - create a folder .data in the root folder for sequelize to create db files
- - Use SQLite extension in vs code to view the tables and fields and data.
 
 ## sample routes
 
@@ -64,11 +80,13 @@ GET  /alert/all - all alerts
 GET  /alert/:alertId - alert by id
 POST /alert -  adds a new alert
 
-/graphql - broadcasts list, broadcast by id and add broadcast
+/graphql contains multiple queries, use schema inspector/insomnia file for more info
+- broadcasts list, broadcast by id and add broadcast
+- users list
+- audit logs
 
 ```
 
 ## todo
 
-- .env
-- docker build with pm2
+- Dockerfile
