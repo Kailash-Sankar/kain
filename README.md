@@ -36,6 +36,10 @@ Runs with nodemon on dev
  yarn run knex seed:run
 ```
 
+## Database
+ - create a folder .data in the root folder for sequelize to create db files
+ - Use SQLite extension in vs code to view the tables and fields and data.
+
 ## sample routes
 
 ```

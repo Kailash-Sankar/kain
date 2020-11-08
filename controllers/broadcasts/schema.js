@@ -9,6 +9,7 @@ const typeDefs = gql`
     date: String!
     created_at: String!
     updated_at: String!
+    status: String!
   }
 
   input NewBroadcast {
