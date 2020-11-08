@@ -1,3 +1,4 @@
+const { generateAlert } = require("../../mock/alert");
 const initRouter = require("../../utils/initRouter");
 const router = initRouter("alert");
 
@@ -28,6 +29,13 @@ router.post("/", async (ctx) => {
     user_id,
   });
   const newAlert = await ctx.db("alerts").where("id", id).first();
+
+  // trigger an alert event
+  setTimeout(async () => {
+    console.log("generating alert event for new alert");
+    await generateAlert(ctx.db, newAlert);
+  }, 1000 * 10);
+
   ctx.body = newAlert;
 });
 

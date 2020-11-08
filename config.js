@@ -9,7 +9,7 @@ const routing = {
 };
 
 const scheduler = {
-  queuePollFrequency: 1000 * 60, // poll for events every minute
+  queuePollFrequency: 1000 * 5, // poll for events every 5 seconds
   debug: true,
 };
 

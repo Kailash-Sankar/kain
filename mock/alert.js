@@ -36,3 +36,4 @@ function getAlerts(db) {
 }
 
 module.exports = mockAlertEvent;
+module.exports.generateAlert = generateAlert;
