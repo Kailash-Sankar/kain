@@ -1,19 +1,24 @@
 const _ = require("lodash");
-const statusObj = require("./util/status");
 
 const resolvers = {
   Query: {
     async broadcasts(root, args, ctx) {
       let broadcasts = await ctx.db.select().from("broadcasts");
-      const broadcastIds = _.map(broadcasts,"id");
-      const queue = await ctx.db.select().from("scheduler_queue").whereIn("type_id", broadcastIds).where("type","broadcast");
-      
-      broadcasts = queue.map(queueItem => {
-        const thisBroadCast = broadcasts.find(broadcast => (broadcast.id== queueItem.type_id));
-          return {
-            ...thisBroadCast,
-            status: statusObj[queueItem.status]
-          }
+      const broadcastIds = _.map(broadcasts, "id");
+      const queue = await ctx.db
+        .select()
+        .from("scheduler_queue")
+        .whereIn("type_id", broadcastIds)
+        .where("type", "broadcast");
+
+      broadcasts = queue.map((queueItem) => {
+        const thisBroadCast = broadcasts.find(
+          (broadcast) => broadcast.id == queueItem.type_id
+        );
+        return {
+          ...thisBroadCast,
+          status: queueItem.status,
+        };
       });
 
       return broadcasts;
