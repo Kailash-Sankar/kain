@@ -11,20 +11,11 @@ const typeDefs = gql`
     updated_at: String!
   }
 
-  type Query {
-    Broadcasts: [Broadcast]
-    Broadcast(id: ID): Broadcast
-  }
-
   input NewBroadcast {
     title: String!
     description: String!
     type: String!
     date: String!
-  }
-
-  type Mutation {
-    addBroadcast(message: NewBroadcast!): Broadcast!
   }
 `;
 

@@ -4,6 +4,7 @@ exports.seed = function (knex) {
     .del()
     .then(function () {
       // Inserts seed entries
+      /*
       return knex("alerts").insert([
         {
           name: "VSF Alerts",
@@ -34,5 +35,6 @@ exports.seed = function (knex) {
           user_id: "a1b",
         },
       ]);
+      */
     });
 };

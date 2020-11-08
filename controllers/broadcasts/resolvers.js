@@ -1,10 +1,10 @@
 const resolvers = {
   Query: {
-    async Broadcasts(root, args, ctx) {
+    async broadcasts(root, args, ctx) {
       const broadcasts = await ctx.db.select().from("broadcasts");
       return broadcasts;
     },
-    async Broadcast(root, args, ctx) {
+    async broadcast(root, args, ctx) {
       const broadcast = await ctx.db("broadcasts").where("id", args.id).first();
       return broadcast;
     },
